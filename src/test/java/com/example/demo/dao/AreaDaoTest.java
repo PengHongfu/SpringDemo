@@ -24,7 +24,7 @@ public class AreaDaoTest {
     @Test
     public void queryArea() {
         List<Area> areaList = areaDao.queryArea();
-        assertEquals(2,areaList.size());
+        assertEquals(3,areaList.size());
     }
 
     @Test
@@ -37,8 +37,8 @@ public class AreaDaoTest {
     @Test
     public void insertArea() {
         Area area = new Area();
-        area.setAreaName("郓城");
-        area.setPriority(4);
+        //area.setAreaName("郓城");
+        area.setPriority(5);
         int count = areaDao.insertArea(area);
         assertEquals(1,count);
 

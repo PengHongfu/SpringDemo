@@ -3,6 +3,7 @@ package com.example.demo.handler;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -14,6 +15,16 @@ import java.util.Map;
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    public static final String DEFAULT_ERROR_VIEW = "error";
+
+    @ExceptionHandler(value = MyException.class)
+    public ModelAndView businessExceptionHandler(HttpServletRequest req, MyException e){
+
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("message", e.getMessage());
+        mav.setViewName(DEFAULT_ERROR_VIEW);
+        return mav;
+    }
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody

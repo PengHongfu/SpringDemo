@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dao.AreaDao;
 import com.example.demo.entity.Area;
+import com.example.demo.handler.MyException;
 import com.example.demo.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,11 @@ public class AreaServiceImpl implements AreaService {
 
     @Override
     public Area queryAreaById(Integer id) {
-        int a =1/0;
+        if(true){//抛出运行时异常
+            //throw new MyException("自定义异常！");
+            //throw new RuntimeException();
+        }
+        int a =1/0;//抛出Exceptin
         return areaDao.queryAreaById(id);
     }
 
@@ -43,13 +48,13 @@ public class AreaServiceImpl implements AreaService {
                 if (effectedNum > 0) {
                     return true;
                 } else {
-                    throw new RuntimeException("插入区域信息失败！");
+                    throw new MyException("插入区域信息失败！");
                 }
-            } catch (RuntimeException e) {
-                throw new RuntimeException("插入区域信息失败！" + e.getMessage());
+            } catch (MyException e) {
+                throw new MyException("插入区域信息失败！" + e.getMessage());
             }
         } else {
-            throw new RuntimeException("区域信息不能为空！");
+            throw new MyException("区域信息不能为空！");
         }
     }
     @Transactional
