@@ -1,12 +1,14 @@
 package com.example.demo.dao;
 
 import com.example.demo.entity.Area;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 /**
  * Created by PengHongfu 2018-05-28 17:16
  */
+@Mapper
 public interface AreaDao {
 
     /**

@@ -60,7 +60,7 @@ public class AreaController {
         return modelMap;
     }
 
-    @GetMapping("/delarea")
+    @PostMapping("/delarea")
     public Map<String, Object> deleteArea(Integer areaId){
         System.out.println(areaId);
         Map<String, Object> modelMap = new HashMap<>();

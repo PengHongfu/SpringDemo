@@ -27,11 +27,11 @@ public class AreaServiceImpl implements AreaService {
 
     @Override
     public Area queryAreaById(Integer id) {
-        if(true){//抛出运行时异常
+        /*if(true){//抛出运行时异常
             //throw new MyException("自定义异常！");
             //throw new RuntimeException();
         }
-        int a =1/0;//抛出Exceptin
+        int a =1/0;//抛出Exceptin*/
         return areaDao.queryAreaById(id);
     }
 
@@ -39,7 +39,7 @@ public class AreaServiceImpl implements AreaService {
     @Override
     public boolean insertArea(Area area) {
         if (area.getAreaName() != null &&
-                "".equals(area.getAreaName())) {
+                !"".equals(area.getAreaName())) {
             area.setCreateTime(new Date());
             area.setLastEditTime(new Date());
 
@@ -57,6 +57,7 @@ public class AreaServiceImpl implements AreaService {
             throw new MyException("区域信息不能为空！");
         }
     }
+
     @Transactional
     @Override
     public boolean updateArea(Area area) {
