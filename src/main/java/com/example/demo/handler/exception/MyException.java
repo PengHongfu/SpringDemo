@@ -1,4 +1,4 @@
-package com.example.demo.handler;
+package com.example.demo.handler.exception;
 
 /**
  * Created by PengHongfu 2018-05-29 14:57

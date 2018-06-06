@@ -2,7 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dao.AreaDao;
 import com.example.demo.entity.Area;
-import com.example.demo.handler.MyException;
+import com.example.demo.handler.exception.MyException;
 import com.example.demo.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
